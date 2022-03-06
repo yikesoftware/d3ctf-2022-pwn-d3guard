@@ -4,6 +4,10 @@ A harmless challenge for your D^3 tour.
 
 Exp: `cat /flag` (*^_^*).
 
+> Hint: There is a little vulnerability that can complete information leak. This is very helpful for the progress of some teams.
+
+> Hint: The builtin `Print()` function accept multi args, what could this mean?  or you can just read `https://github.com/tianocore/edk2` to find some directions.
+
 # Notice
 
 1. The environment of the attachment is **not exactly** the same as the game environment.
