@@ -1,5 +1,9 @@
 ## d3guard
 
+> 非常遗憾这题最终没有解，也许是出题上还有可以改进的空间，欢迎对UEFI PWN方面感兴趣的师傅私信交流！
+
+> It's a pity that this challenge was not solved in the end, maybe there is still some space for improvement in the challenge, and we welcome players interested in UEFI PWN to communicate with us in a private message!
+
 ### 1. Analysis
 
 观察启动脚本的参数可以发现，QEMU在启动时向pflash（可以看成是bios）写入了一个叫做OVMF.fd的固件，并且将`./content`目录挂载为了一个fat格式的驱动器。熟悉UEFI开发的选手应该很快可以想到这是一个UEFI PWN，即通过UEFI环境下的漏洞利用完成提权
@@ -114,10 +118,17 @@ Combined with the above analysis, set `POOL_HEAD->EFI_MEMORY_TYPE` of `visitor->
 
 Since the location of `_ModuleEntryPoint+718`, the upper function of `d3guard()`, will judge the return value of `d3guard()` to decide whether to enter the UI interaction interface, the most straightforward approach is to overwrite the d3guard return address to skip the if branch and enter the UI interaction interface directly. However, when actually writing the script, we found that the leaked program address is not stable with the target address offset of the jump, so we overwrite the d3guard return address as the address of a shellcode on the stack, which can be deployed in advance when entering the Admin pass key. With the help of the shellcode and the mirror address in the register, a stable jump target address can be calculated.
 
-成功进入Ui交互界面后，只需要通过操作菜单添加一个新的启动项，并将参数`rdinit`设置为`/bin/sh`然后通过其进入操作系统，即可获得root权限
+成功进入Ui交互界面后，只需要通过操作菜单添加一个新的启动项，并将参数`rdinit`设置为`/bin/sh`然后通过其进入操作系统，即可获得root权限。
 
 After successfully entering the Ui interactive interface, you only need to add a new boot item through the menu and set the parameter `rdinit` to `/bin/sh` and then enter the operating system through it to gain root access
 
-> 题目附件和利用脚本：https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard
+> 开始没想到加启动项这个步骤也能成为一个坑点...其实可以编译一份原版OVMF.fd，进入`Boot Maintenance Manager`，进入` Boot Options`，选择`Add Boot Option`，选择内核镜像`bzImage`，设置启动项名称`rootshell`，设置内核启动的附加参数`console=ttyS0 initrd=rootfs.img rdinit=/bin/sh quiet`，最后返回主页面选择启动项菜单，找到`rootshell`这一项
 
+> At first, I didn't think that the step of adding boot options could be a pitfall... In fact, you can compile a copy of the original OVMF.fd, then enter `Boot Maintenance Manager`->enter `Boot Options`->select `Add Boot Option`->select the kernel image `bzImage`->set the boot item name `rootshell`->set the additional parameters for the kernel boot ` console=ttyS0 initrd=rootfs.img rdinit=/bin/sh quiet`->finally return to the main page and select the boot option menu->find the item `rootshell`
+
+---
+
+> 题目附件和利用脚本：https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard
 > Challenge attachment and exploit：https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard
+
+---
