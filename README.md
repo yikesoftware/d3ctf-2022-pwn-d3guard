@@ -13,3 +13,7 @@ Exp: `cat /flag` (*^_^*).
 1. The environment of the attachment is **not exactly** the same as the game environment.
 
 2. If you have questions about the challenge, please ask the author.
+
+# Writeup
+
+[writeup.md](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup.md)
