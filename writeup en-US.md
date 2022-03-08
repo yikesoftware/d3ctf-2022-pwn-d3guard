@@ -6,8 +6,6 @@
 
 Looking at the parameters of the boot script, you can see that QEMU writes a firmware called OVMF.fd to pflash (which can be seen as bios) at boot time, and mounts the `./content` directory as a fat format drive. Players familiar with UEFI development should quickly think of this as a UEFI PWN, i.e., completing a power-up by completing a vulnerability exploit in a UEFI environment
 
-> 题目源文件的所有改动基于edk2项目：[https://github.com/tianocore/edk2](https://github.com/tianocore/edk2)
-
 > All changes to the source file of the challenge are based on the edk2 project: [https://github.com/tianocore/edk2](https://github.com/tianocore/edk2)
 
 Running the startup script without doing anything will take you directly to the operating system and switch to the low privilege user. This user does not have read access to the flag file in the root directory. Combined with the `cat /flag` in the title description, we can tell that we need to elevate privileges in some way to read the contents of the flag
@@ -85,7 +83,6 @@ After successfully entering the Ui interactive interface, you only need to add a
 
 ---
 
-> 题目附件和利用脚本：https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard
 > Challenge attachment and exploit：https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard
 
 ---
