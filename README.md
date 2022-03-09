@@ -20,4 +20,4 @@ Exp: `cat /flag` (*^_^*).
 
 English：[writeup zh-cn](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20zh-cn.md)
 
-Players who have doubts about the solution of the challenge welcome [issue](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/issues) me!
+Players who have doubts about the solution of this challenge welcome [issue](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/issues) me!
