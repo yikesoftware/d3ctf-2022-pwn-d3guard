@@ -16,6 +16,6 @@ Exp: `cat /flag` (*^_^*).
 
 # Writeup
 
-[writeup en-US](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup+en-US.md)
+[writeup en-US](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20en-US.md)
 
-[writeup zh-cn](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup+zh-cn.md)
+[writeup zh-cn](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20zh-cn.md)
