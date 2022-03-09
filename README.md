@@ -16,6 +16,8 @@ Exp: `cat /flag` (*^_^*).
 
 # Writeup
 
-[writeup en-US](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20en-US.md)
+中文：[writeup en-US](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20en-US.md)
 
-[writeup zh-cn](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20zh-cn.md)
+English：[writeup zh-cn](https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/blob/main/writeup%20zh-cn.md)
+
+Players who have doubts about the solution of the challenge welcome (issue)[https://github.com/yikesoftware/d3ctf-2022-pwn-d3guard/issues] me!
